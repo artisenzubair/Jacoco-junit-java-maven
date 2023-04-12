@@ -34,10 +34,7 @@ environment {
 
   stage('Snyk scanning code') {
             steps {
-                withCredentials([string(credentialsId: 'sonarQube', variable: 'SNYK_TOKEN')]) {
-                  sh 'snyk auth $SNYK_TOKEN'
-                  sh 'snyk test'
-              }
+                snykSecurity failOnError: false, failOnIssues: false, projectName: 'jacoco-junit', snykInstallation: 'synkinstall', snykTokenId: 'SNYK_TOKEN', targetFile: 'home/ubuntu/jenkins'
             }
         }
   stage('Build image') {
