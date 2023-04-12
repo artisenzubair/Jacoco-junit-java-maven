@@ -34,7 +34,7 @@ environment {
 
   stage('Snyk scanning code') {
             steps {
-                snykSecurity failOnError: false, failOnIssues: false, projectName: 'jacoco-junit', snykInstallation: 'synkinstall', snykTokenId: 'SNYK_TOKEN', targetFile: 'home/ubuntu/jenkins'
+                snykSecurity failOnError: false, failOnIssues: false, projectName: 'jacoco-junit', snykInstallation: 'synkinstall', snykTokenId: 'SNYK_TOKEN'
             }
         }
   stage('Build image') {
