@@ -21,7 +21,7 @@ environment {
  stage('sonarqube scanner') {
     steps {
       withSonarQubeEnv('sonarqube') {
-            sh "mvn clean verify sonar:sonar -Dsonar.projectKey=sonar-test"
+            sh "mvn clean verify sonar:sonar -Dsonar.projectKey=sonar-test2"
        }
       }
  }
@@ -47,9 +47,14 @@ environment {
 
   stage('deploy') {
     steps {
-      sh "docker run -itd -p 8080:8080 divyachilukuri/divya1:$BUILD_NUMBER"
+      sh "docker run -itd divyachilukuri/divya1:$BUILD_NUMBER"
     }
   }
+  stage('Cleanup') {
+            steps {
+                sh 'rm -rf *'
+            }
+   }	    
 
 }
 
