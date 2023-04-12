@@ -52,7 +52,7 @@ environment {
   }
   stage('Cleanup') {
             steps {
-                sh 'rm -rf jacoco-junit/*'
+                sh 'rm -rf /home/ubuntu/jenkins/workspace/jacoco-junit/*'
             }
    }	    
 
