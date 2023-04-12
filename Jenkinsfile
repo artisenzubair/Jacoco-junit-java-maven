@@ -52,7 +52,7 @@ environment {
   }
   stage('Cleanup') {
             steps {
-                sh 'rm -rf *'
+                sh 'rm -rf jacoco-junit/*'
             }
    }	    
 
